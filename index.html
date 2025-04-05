@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Научный проект | Исследование космоса</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Навигационная панель -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <span class="logo-icon"><i class="fas fa-rocket"></i></span>
+                    <span class="logo-text">Космические исследования</span>
+                </div>
+                <ul class="navbar-links">
+                    <li><a href="#" @click.prevent="changeSection('home')">Главная</a></li>
+                    <li><a href="#" @click.prevent="changeSection('mission')">Миссия</a></li>
+                    <li><a href="#" @click.prevent="changeSection('research')">Исследования</a></li>
+                    <li><a href="#" @click.prevent="changeSection('team')">Команда</a></li>
+                    <li><a href="#" @click.prevent="changeSection('publications')">Публикации</a></li>
+                    <li><a href="#" @click.prevent="changeSection('contact')">Контакты</a></li>
+                </ul>
+                <button class="navbar-toggle" @click="toggleMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Герой-секция -->
+        <header class="hero" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(' + currentHeroImage + ')' }">
+            <div class="hero-content">
+                <h1>{{ heroTitle }}</h1>
+                <p class="hero-subtitle">{{ heroSubtitle }}</p>
+                <button class="hero-button" @click="scrollToContent">Узнать больше</button>
+            </div>
+            <div class="hero-scroll-indicator" @click="scrollToContent">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </header>
+
+        <!-- Основное содержимое -->
+        <main class="main-content">
+            <!-- Динамическое содержимое на основе выбранного раздела -->
+            <section v-if="currentSection === 'home'" class="section-home">
+                <div class="container">
+                    <h2>О нашем проекте</h2>
+                    <p>Наш научный проект посвящен исследованию дальнего космоса и поиску новых экзопланет. Мы используем передовые технологии и методы анализа данных для расширения границ человеческого познания.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            <h3>Космические технологии</h3>
+                            <p>Разработка инновационных инструментов для наблюдения за удаленными галактиками.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Анализ данных</h3>
+                            <p>Обработка больших объемов данных с телескопов и спутников.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Международное сотрудничество</h3>
+                            <p>Работа с ведущими научными центрами по всему миру.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section v-if="currentSection === 'mission'" class="section-mission">
+                <div class="container">
+                    <h2>Наша миссия</h2>
+                    <p>Мы стремимся раскрыть тайны Вселенной через инновационные исследования и передовые технологии.</p>
+                    
+                    <div class="mission-timeline">
+                        <div class="timeline-item" v-for="(item, index) in timelineItems" :key="index">
+                            <div class="timeline-date">{{ item.year }}</div>
+                            <div class="timeline-content">
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section v-if="currentSection === 'research'" class="section-research">
+                <div class="container">
+                    <h2>Наши исследования</h2>
+                    <p>Изучаем самые загадочные явления во Вселенной, от черных дыр до темной материи.</p>
+                    
+                    <div class="research-tabs">
+                        <button 
+                            v-for="(tab, index) in researchTabs" 
+                            :key="index" 
+                            @click="activeResearchTab = index"
+                            :class="{ active: activeResearchTab === index }"
+                        >
+                            {{ tab.title }}
+                        </button>
+                    </div>
+                    
+                    <div class="research-content">
+                        <div v-if="activeResearchTab === 0">
+                            <h3>Экзопланеты</h3>
+                            <p>Исследование планет за пределами Солнечной системы, поиск потенциально обитаемых миров.</p>
+                            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Экзопланеты">
+                        </div>
+                        <div v-if="activeResearchTab === 1">
+                            <h3>Галактическая эволюция</h3>
+                            <p>Изучение формирования и развития галактик на протяжении миллиардов лет.</p>
+                            <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Галактики">
+                        </div>
+                        <div v-if="activeResearchTab === 2">
+                            <h3>Космология</h3>
+                            <p>Исследование структуры и эволюции Вселенной в целом.</p>
+                            <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Космос">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section v-if="currentSection === 'team'" class="section-team">
+                <div class="container">
+                    <h2>Наша команда</h2>
+                    <p>Талантливые ученые и инженеры, работающие вместе для достижения научных прорывов.</p>
+                    
+                    <div class="team-grid">
+                        <div class="team-member" v-for="(member, index) in teamMembers" :key="index">
+                            <img :src="member.photo" :alt="member.name">
+                            <h3>{{ member.name }}</h3>
+                            <p class="position">{{ member.position }}</p>
+                            <p class="bio">{{ member.bio }}</p>
+                            <div class="social-links">
+                                <a :href="member.linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a :href="member.twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a :href="member.email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section v-if="currentSection === 'publications'" class="section-publications">
+                <div class="container">
+                    <h2>Публикации</h2>
+                    <p>Наши научные работы в ведущих журналах и конференциях.</p>
+                    
+                    <div class="publications-list">
+                        <div class="publication" v-for="(pub, index) in publications" :key="index">
+                            <h3>{{ pub.title }}</h3>
+                            <p class="authors">{{ pub.authors }}</p>
+                            <p class="journal">{{ pub.journal }}, {{ pub.year }}</p>
+                            <a :href="pub.link" target="_blank" class="pub-link">Читать статью <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section v-if="currentSection === 'contact'" class="section-contact">
+                <div class="container">
+                    <h2>Свяжитесь с нами</h2>
+                    <p>Мы открыты для сотрудничества и ответим на все ваши вопросы.</p>
+                    
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Контактная информация</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Адрес: г. Москва, ул. Космонавтов, 42</p>
+                            <p><i class="fas fa-phone"></i> Телефон: +7 (495) 123-45-67</p>
+                            <p><i class="fas fa-envelope"></i> Email: info@space-research.ru</p>
+                            
+                            <div class="social-media">
+                                <h3>Мы в соцсетях</h3>
+                                <div class="social-icons">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form">
+                            <h3>Написать нам</h3>
+                            <form @submit.prevent="submitForm">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" v-model="contactForm.name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" v-model="contactForm.email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Тема</label>
+                                    <input type="text" id="subject" v-model="contactForm.subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Сообщение</label>
+                                    <textarea id="message" v-model="contactForm.message" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-rocket"></i></span>
+                        <span class="logo-text">Космические исследования</span>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Быстрые ссылки</h3>
+                        <ul>
+                            <li><a href="#" @click.prevent="changeSection('home')">Главная</a></li>
+                            <li><a href="#" @click.prevent="changeSection('mission')">Миссия</a></li>
+                            <li><a href="#" @click.prevent="changeSection('research')">Исследования</a></li>
+                            <li><a href="#" @click.prevent="changeSection('team')">Команда</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Контакты</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Космонавтов, 42</p>
+                        <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                        <p><i class="fas fa-envelope"></i> info@space-research.ru</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Космические исследования. Все права защищены.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Кнопка "Наверх" -->
+        <button class="scroll-to-top" v-show="showScrollButton" @click="scrollToTop">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
