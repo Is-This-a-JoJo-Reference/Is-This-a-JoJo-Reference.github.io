@@ -53,64 +53,45 @@ createApp({
             ],
             teamMembers: [
                 {
-                    name: 'Дмитрий Иванов',
+                    name: 'Архангельская Ирина Владимировна',
                     position: 'Руководитель проекта',
-                    bio: 'Доктор физико-математических наук, специалист в области астрофизики.',
-                    photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-                    linkedin: '#',
-                    twitter: '#',
-                    email: 'mailto:d.ivanov@space-research.ru'
+                    bio: '*Место для регалий*',
+                    photo: './Images/ArkhangelskayaIV.jpg',
+                    telegram: '#',
+                    email: '#'
                 },
                 {
-                    name: 'Елена Петрова',
-                    position: 'Ведущий исследователь',
-                    bio: 'Кандидат физико-математических наук, эксперт в области спектроскопии.',
-                    photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-                    linkedin: '#',
-                    twitter: '#',
-                    email: 'mailto:e.petrova@space-research.ru'
+                    name: 'Виноградская Анна Валериановна',
+                    position: 'Главный теоретик Б23-201',
+                    bio: 'Студент 2 курса института ЛаПлаз',
+                    photo: './Images/VinogradskayaAV.jpg',
+                    telegram: '#',
+                    email: '#'
                 },
                 {
-                    name: 'Алексей Смирнов',
+                    name: 'Зарипов Илья Денисович',
                     position: 'Инженер-программист',
-                    bio: 'Специалист по обработке больших данных и машинному обучению.',
-                    photo: 'https://randomuser.me/api/portraits/men/22.jpg',
-                    linkedin: '#',
-                    twitter: '#',
-                    email: 'mailto:a.smirnov@space-research.ru'
+                    bio: 'Студент 2 курса института ЛаПлаз',
+                    photo: './Images/ZaripovID.jpg',
+                    telegram: 'https://t.me/izaripov13',
+                    email: 'stenypol@gmail.com'
                 },
-                {
-                    name: 'Ольга Кузнецова',
-                    position: 'Научный сотрудник',
-                    bio: 'Специалист в области теоретической космологии.',
-                    photo: 'https://randomuser.me/api/portraits/women/68.jpg',
-                    linkedin: '#',
-                    twitter: '#',
-                    email: 'mailto:o.kuznetsova@space-research.ru'
-                }
             ],
             publications: [
                 {
-                    title: 'Новый метод обнаружения экзопланет в системах красных карликов',
-                    authors: 'Иванов Д.А., Петрова Е.С., Смирнов А.В.',
-                    journal: 'Nature Astronomy',
-                    year: 2022,
-                    link: '#'
+                    title: 'Создание мобильного радиотелескопа',
+                    authors: 'Виноградская А. В., Воскобойников Д. О., Зарипов И. Д., Левченков А. Ф., Басов Я. А.',
+                    journal: 'Сборник избранных тезисов работ лауреатов III Зимней научной сессии СНО НИЯУ МИФИ. С.13-14',
+                    year: 2023,
+                    link: './PDFs/Theses_SNO_Winter_session_2023.pdf'
                 },
                 {
-                    title: 'Эволюция спиральных галактик в ранней Вселенной',
-                    authors: 'Кузнецова О.Н., Иванов Д.А., Соколов В.П.',
-                    journal: 'The Astrophysical Journal',
-                    year: 2021,
-                    link: '#'
+                    title: 'Применение методики радиоинтерферометрии в учебном процессе в НИЯУ МИФИ',
+                    authors: 'Архангельская И. В., Виноградская А. В., Зарипов И. Д., Рахангельский А.И., Рудакова Е. А., Маджидов А. И., Часовиков Е. Н., Панькова М. О., Минасян В. В., Плотникова Е. И.',
+                    journal: 'XI Международная конференция ЛАПЛАЗ-2025. Сборник научных трудов. С. 372.',
+                    year: 2025,
+                    link: './PDFs/Theses_LapLas_2025.pdf'
                 },
-                {
-                    title: 'Анализ данных телескопа Хаббл с использованием методов машинного обучения',
-                    authors: 'Смирнов А.В., Петрова Е.С., Кузнецова О.Н.',
-                    journal: 'Monthly Notices of the Royal Astronomical Society',
-                    year: 2020,
-                    link: '#'
-                }
             ],
             contactForm: {
                 name: '',

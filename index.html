@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Научный проект | Исследование космоса</title>
+    <title>Радиоинтерферометр MEPhIst</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -14,8 +14,8 @@
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-brand">
-                    <span class="logo-icon"><i class="fas fa-rocket"></i></span>
-                    <span class="logo-text">Космические исследования</span>
+                    <span class="logo-icon"><i class="fas fa-satellite-dish"></i></span>
+                    <span class="logo-text">MEPhIst</span>
                 </div>
                 <ul class="navbar-links">
                     <li><a href="#" @click.prevent="changeSection('home')">Главная</a></li>
@@ -142,9 +142,8 @@
                             <p class="position">{{ member.position }}</p>
                             <p class="bio">{{ member.bio }}</p>
                             <div class="social-links">
-                                <a :href="member.linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a :href="member.twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a :href="member.email"><i class="fas fa-envelope"></i></a>
+                                <a :href="member.telegram" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                                <a :href="`mailto:${member.email}`"><i class="fas fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
@@ -154,7 +153,7 @@
             <section v-if="currentSection === 'publications'" class="section-publications">
                 <div class="container">
                     <h2>Публикации</h2>
-                    <p>Наши научные работы в ведущих журналах и конференциях.</p>
+                    <p>Наши научные работы.</p>
                     
                     <div class="publications-list">
                         <div class="publication" v-for="(pub, index) in publications" :key="index">
@@ -222,8 +221,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <span class="logo-icon"><i class="fas fa-rocket"></i></span>
-                        <span class="logo-text">Космические исследования</span>
+                        <span class="logo-icon"><i class="fas fa-satellite-dish"></i></span>
+                        <span class="logo-text">MEPhIst</span>
                     </div>
                     <div class="footer-links">
                         <h3>Быстрые ссылки</h3>
@@ -236,19 +235,13 @@
                     </div>
                     <div class="footer-contact">
                         <h3>Контакты</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Космонавтов, 42</p>
+                        <p><i class="fas fa-map-marker-alt"></i>НИЯУ МИФИ. Г. Москва, Каширское ш., 31</p>
                         <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
-                        <p><i class="fas fa-envelope"></i> info@space-research.ru</p>
+                        <p><i class="fas fa-envelope"></i> radiotelescopemephi@gmail.com</p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 Космические исследования. Все права защищены.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <p>&copy; 2025 MEPhIst. Все права защищены.</p>
                 </div>
             </div>
         </footer>
