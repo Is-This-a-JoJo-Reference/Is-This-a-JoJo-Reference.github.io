@@ -11,32 +11,22 @@ createApp({
             heroTitle: 'Студенческий радиоинтерферометр',
             heroSubtitle: 'Передовые научные исследования для понимания Вселенной',
             currentHeroImage: './src/Images/BG_home.avif',
-            timelineItems: [
+            mainFeatures: [
                 {
-                    year: '2018',
-                    title: 'Основание проекта',
-                    description: 'Создание исследовательской группы и начало работы над проектом.'
+                    icon: 'fas fa-satellite',
+                    title: 'Космические технологии',
+                    content: 'Разработка инновационных инструментов для наблюдения за ближним и дальним космосом.'
                 },
                 {
-                    year: '2019',
-                    title: 'Первые результаты',
-                    description: 'Получение первых значимых данных и публикация предварительных результатов.'
+                    icon: 'fas fa-chart-line',
+                    title: 'Анализ данных',
+                    content: 'Обработка и публикация больших объемов данных с интерферометра.'
                 },
                 {
-                    year: '2020',
-                    title: 'Международное признание',
-                    description: 'Сотрудничество с ведущими мировыми научными центрами.'
+                    icon: 'fas fa-users',
+                    title: 'Сотрудничество с существующими проектами',
+                    content: 'Обсуждается сотркдничество с ИСЗФ СО РАН.'
                 },
-                {
-                    year: '2021',
-                    title: 'Прорыв в исследованиях',
-                    description: 'Открытие новых экзопланет и публикация в Nature.'
-                },
-                {
-                    year: '2022',
-                    title: 'Расширение команды',
-                    description: 'Привлечение новых специалистов и увеличение финансирования.'
-                }
             ],
             researchTabs: [
                 {
@@ -59,10 +49,6 @@ createApp({
                     image: './src/Images/Centaurus_A.avif',
                     credit: "NASA, ESA, S. Baum and C. O'Dea (RIT), R. Perley and W. Cotton (NRAO/AUI/NSF), and the Hubble Heritage Team (STScI/AURA)"
                 },
-                {
-                    title: '3D модель модуля',
-                    content: 'Мобильность модуля облегчает настройку и калибровку'
-                }
             ],
             teamMembers: [
                 {

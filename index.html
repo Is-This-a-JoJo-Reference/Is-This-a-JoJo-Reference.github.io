@@ -35,18 +35,13 @@
             </div>
         </nav>
 
-        <!-- Герой-секция -->
+        <!-- hero-секция -->
         <header class="hero" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(' + currentHeroImage + ')' }">
             <div class="hero-content">
                 <h1>{{ heroTitle }}</h1>
                 <p class="hero-subtitle">{{ heroSubtitle }}</p>
                 <button class="hero-button" @click="scrollToContent">Узнать больше</button>
             </div>
-            <!--
-            <div class="hero-scroll-indicator" @click="scrollToContent">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            -->
         </header>
 
         <!-- Основное содержимое -->
@@ -56,29 +51,21 @@
                 <div class="container">
                     <h2>О нашем проекте</h2>
                     <p>Наш научный проект посвящен *чему-то*. Мы используем передовые технологии и методы анализа данных для расширения границ человеческого познания.</p>
-                    
-                    <div class="features-grid">
-                        <div class="feature-card">
+
+                    <div class = "features-grid">
+                        <div class = "feature-card" v-for="(feature, index) in mainFeatures" :key="index">
                             <div class="feature-icon">
-                                <i class="fas fa-satellite"></i>
+                                <i :class="`${feature.icon}`"></i>
                             </div>
-                            <h3>Космические технологии</h3>
-                            <p>Разработка инновационных инструментов для наблюдения за удаленными галактиками.</p>
+                            <h3>{{ feature.title }}</h3>
+                            <p>{{ feature.content }}</p>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Анализ данных</h3>
-                            <p>Обработка больших объемов данных с телескопов и спутников.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Международное сотрудничество</h3>
-                            <p>Работа с ведущими научными центрами по всему миру.</p>
-                        </div>
+                    </div>
+
+                    <h2>3D модель модуля радиоинтерферометра</h2>
+                    <p>Мобильность модуля облегчает настройку и калибровку</p>
+                    <div class="sketchfab-embed-wrapper"> 
+                        <iframe title="Interferometer_module" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="800" src="https://sketchfab.com/models/804025713d91419999d06564b5aaa8c2/embed"> </iframe> 
                     </div>
                 </div>
             </section>
@@ -190,7 +177,7 @@
             </section>
         </main>
 
-        <!-- Футер -->
+        <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
