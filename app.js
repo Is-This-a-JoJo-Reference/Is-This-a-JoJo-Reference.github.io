@@ -10,7 +10,7 @@ createApp({
             activeResearchTab: 0,
             heroTitle: 'Студенческий радиоинтерферометр',
             heroSubtitle: 'Передовые научные исследования для понимания Вселенной',
-            currentHeroImage: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+            currentHeroImage: './src/Images/BG_home.avif',
             timelineItems: [
                 {
                     year: '2018',
@@ -46,7 +46,7 @@ createApp({
                         '• Обнаружение и исследование волновых процессов и ударных волн',
                         '• Анализ радиопрозрачности элементов грануляции',
                     ],
-                    image: './src/Images/Sun_1.jpg',
+                    image: './src/Images/Sun_1.avif',
                     credit: 'Jordi Coy'
                 },
                 {
@@ -56,7 +56,7 @@ createApp({
                         '• Межзвёздные облака водорода на космологических расстояниях в галактиках и протогалактиках, формировавшихся на ранних стадиях эволюции Вселенной',
                         '• Галлактические облака нейтрального водорода',
                     ],
-                    image: './src/Images/Centaurus_A.jpg',
+                    image: './src/Images/Centaurus_A.avif',
                     credit: "NASA, ESA, S. Baum and C. O'Dea (RIT), R. Perley and W. Cotton (NRAO/AUI/NSF), and the Hubble Heritage Team (STScI/AURA)"
                 },
                 {
@@ -69,7 +69,7 @@ createApp({
                     name: 'Архангельская Ирина Владимировна',
                     position: 'Руководитель проекта',
                     bio: '*Место для регалий*',
-                    photo: './src/Images/ArkhangelskayaIV.jpg',
+                    photo: './src/Images/ArkhangelskayaIV.avif',
                     telegram: '#',
                     email: '#'
                 },
@@ -77,7 +77,7 @@ createApp({
                     name: 'Виноградская Анна Валериановна',
                     position: 'Главный теоретик Б23-201',
                     bio: 'Студент 2 курса института ЛаПлаз',
-                    photo: './src/Images/VinogradskayaAV.jpg',
+                    photo: './src/Images/VinogradskayaAV.avif',
                     telegram: '#',
                     email: '#'
                 },
@@ -85,7 +85,7 @@ createApp({
                     name: 'Зарипов Илья Денисович',
                     position: 'Инженер-программист',
                     bio: 'Студент 2 курса института ЛаПлаз',
-                    photo: './src/Images/ZaripovID.jpg',
+                    photo: './src/Images/ZaripovID.avif',
                     telegram: 'https://t.me/izaripov13',
                     email: 'stenypol@gmail.com'
                 },
@@ -116,32 +116,27 @@ createApp({
                 home: {
                     title: 'Студенческий радиоинтерферометр',
                     subtitle: 'Передовые научные исследования для понимания Вселенной',
-                    image: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-                },
-                mission: {
-                    title: 'Наша миссия',
-                    subtitle: 'Раскрытие тайн Вселенной через инновационные исследования',
-                    image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    image: './src/Images/BG_home.avif'
                 },
                 research: {
                     title: 'Наши исследования',
                     subtitle: 'Изучение самых загадочных явлений во Вселенной',
-                    image: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    image: './src/Images/BG_research.avif'
                 },
                 team: {
                     title: 'Наша команда',
                     subtitle: 'Талантливые ученые и инженеры, работающие вместе',
-                    image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    image: './src/Images/BG_team.avif'
                 },
                 publications: {
                     title: 'Публикации',
                     subtitle: 'Наши научные работы в ведущих журналах',
-                    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    image: './src/Images/BG_publications.avif'
                 },
                 contact: {
                     title: 'Свяжитесь с нами',
                     subtitle: 'Мы открыты для сотрудничества',
-                    image: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    image: './src/Images/BG_contact.avif'
                 }
             },
             contactInfo: {
