@@ -1,3 +1,4 @@
+for %i in (*.jpg *.jpeg) do ffmpeg -i "%i" -vf "scale='min(1920,iw)':-1" -still-picture 1 -compression_level 10 -q:v 5 "%i.avif"
 Sun_1 https://apod.nasa.gov/apod/ap210921.html
 Sun_2 https://apod.nasa.gov/apod/ap240902.html
 Sun_3 https://apod.nasa.gov/apod/ap230222.html
