@@ -7,84 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Three.js Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/STLLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
-
-    <!-- Viewer Script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // 1. Initialize scene
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xf0f0f0);
-        
-        // 2. Set up camera
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
-        camera.position.z = 5;
-
-        // 3. Create renderer
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(document.getElementById('stl-viewer').clientWidth, 500);
-        document.getElementById('stl-viewer').appendChild(renderer.domElement);
-
-        // 4. Add lights
-        const ambientLight = new THREE.AmbientLight(0x404040);
-        scene.add(ambientLight);
-        
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(1, 1, 1);
-        scene.add(directionalLight);
-
-        // 5. Add orbit controls (mouse/touch rotation)
-        const controls = new THREE.OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.25;
-
-        // 6. Load STL model
-        const loader = new THREE.STLLoader();
-        loader.load(
-        './src/models/Interferometer_module.stl', // Path to your STL file
-        (geometry) => {
-            const material = new THREE.MeshPhongMaterial({ 
-            color: 0x00aaff, 
-            specular: 0x111111, 
-            shininess: 200 
-            });
-            const mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
-            
-            // Auto-center model
-            const box = new THREE.Box3().setFromObject(mesh);
-            const center = box.getCenter(new THREE.Vector3());
-            mesh.position.sub(center);
-        },
-        undefined,
-        (error) => {
-            console.error('Error loading STL:', error);
-        }
-        );
-
-        // 7. Animation loop
-        function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-        renderer.render(scene, camera);
-        }
-        animate();
-
-        // 8. Handle window resize
-        window.addEventListener('resize', () => {
-        camera.aspect = document.getElementById('stl-viewer').clientWidth / 500;
-        camera.updateProjectionMatrix();
-        renderer.setSize(
-            document.getElementById('stl-viewer').clientWidth, 
-            500
-        );
-        });
-    });
-    </script>
 </head>
 <body>
     <div id="app">
@@ -97,7 +19,6 @@
                 </div>
                 <ul class="navbar-links">
                     <li><a href="#" @click.prevent="changeSection('home')">Главная</a></li>
-                    <li><a href="#" @click.prevent="changeSection('mission')">Миссия</a></li>
                     <li><a href="#" @click.prevent="changeSection('research')">Исследования</a></li>
                     <li><a href="#" @click.prevent="changeSection('team')">Команда</a></li>
                     <li><a href="#" @click.prevent="changeSection('publications')">Публикации</a></li>
@@ -150,23 +71,6 @@
                             </div>
                             <h3>Международное сотрудничество</h3>
                             <p>Работа с ведущими научными центрами по всему миру.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section v-if="currentSection === 'mission'" class="section-mission">
-                <div class="container">
-                    <h2>Наша миссия</h2>
-                    <p>Мы стремимся раскрыть тайны Вселенной через инновационные исследования и передовые технологии.</p>
-                    
-                    <div class="mission-timeline">
-                        <div class="timeline-item" v-for="(item, index) in timelineItems" :key="index">
-                            <div class="timeline-date">{{ item.year }}</div>
-                            <div class="timeline-content">
-                                <h3>{{ item.title }}</h3>
-                                <p>{{ item.description }}</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -242,17 +146,14 @@
             </section>
 
             <section v-if="currentSection === 'contact'" class="section-contact">
-                <div class="container">
-                    <h2>Свяжитесь с нами</h2>
-                    <p>Мы открыты для сотрудничества и ответим на все ваши вопросы.</p>
-                    
+                <div class="container">                    
                     <div class="contact-container">
                         <div class="contact-info">
                             <h3>Контактная информация</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> Адрес: г. Москва, ул. Космонавтов, 42</p>
-                            <p><i class="fas fa-phone"></i> Телефон: +7 (495) 123-45-67</p>
-                            <p><i class="fas fa-envelope"></i> Email: info@space-research.ru</p>
-                            
+                            <p><i class="fas fa-map-marker-alt"></i>Адрес: {{ contactInfo.addres }}</p>
+                            <p><i class="fas fa-phone"></i>Телефон: {{ contactInfo.phone }}</p>
+                            <p><i class="fas fa-envelope"></i> Email: {{ contactInfo.email }}</p>
+                            <!--
                             <div class="social-media">
                                 <h3>Мы в соцсетях</h3>
                                 <div class="social-icons">
@@ -262,6 +163,7 @@
                                     <a href="#"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
+                            -->
                         </div>
                         
                         <div class="contact-form">
@@ -312,7 +214,7 @@
                         <h3>Контакты</h3>
                         <p><i class="fas fa-map-marker-alt"></i>НИЯУ МИФИ. Г. Москва, Каширское ш., 31</p>
                         <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
-                        <p><a href="mailto:radiotelescopemephi@gmail.com"><i class="fas fa-envelope"></i> info@space-research.ru</a></p>
+                        <p><a :href="`mailto:${contactInfo.email}`"><i class="fas fa-envelope"></i> {{ contactInfo.email }}</a></p>
                     </div>
                 </div>
                 <div class="footer-bottom">

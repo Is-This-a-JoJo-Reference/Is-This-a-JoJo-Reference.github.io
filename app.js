@@ -113,7 +113,7 @@ createApp({
             },
             sectionHeroData: {
                 home: {
-                    title: 'Исследование космоса',
+                    title: 'Студенческий радиоинтерферометр',
                     subtitle: 'Передовые научные исследования для понимания Вселенной',
                     image: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
                 },
@@ -139,9 +139,14 @@ createApp({
                 },
                 contact: {
                     title: 'Свяжитесь с нами',
-                    subtitle: 'Мы открыты для сотрудничества и ответим на все ваши вопросы',
+                    subtitle: 'Мы открыты для сотрудничества',
                     image: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
                 }
+            },
+            contactInfo: {
+                addres: 'НИЯУ МИФИ. Г. Москва, Каширское ш., 31',
+                phone: '+7 (495) 123-45-67',
+                email: 'radiotelescopemephi@gmail.com'
             }
         }
     },
