@@ -7,7 +7,7 @@ createApp({
             showScrollButton: false,
             isMenuOpen: false,
             activeResearchTab: 0,
-            heroTitle: 'Исследование космоса',
+            heroTitle: 'Студенческий радиоинтерферометр',
             heroSubtitle: 'Передовые научные исследования для понимания Вселенной',
             currentHeroImage: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
             timelineItems: [
@@ -39,16 +39,28 @@ createApp({
             ],
             researchTabs: [
                 {
-                    title: 'Экзопланеты',
-                    content: 'Исследование планет за пределами Солнечной системы.'
+                    title: 'Солнечные вспышки',
+                    content: [
+                        '• Идентификация механизмов ускорения электронов, вспышечного нагрева плазмы и процессов переноса энергии в атмосфере',
+                        '• Обнаружение и исследование волновых процессов и ударных волн',
+                        '• Анализ радиопрозрачности элементов грануляции',
+                    ],
+                    image: './src/Images/Sun_1.jpg',
+                    credit: 'Jordi Coy'
                 },
                 {
-                    title: 'Галактическая эволюция',
-                    content: 'Изучение формирования и развития галактик.'
+                    title: 'Излучение в линии водорода',
+                    content: [
+                        'Изучение излучения в линии водорода HI 21 см (1420,4 МГц) при различных z',
+                        '• Межзвёздные облака водорода на космологических расстояниях в галактиках и протогалактиках, формировавшихся на ранних стадиях эволюции Вселенной',
+                        '• Галлактические облака нейтрального водорода',
+                    ],
+                    image: './src/Images/Centaurus_A.jpg',
+                    credit: "NASA, ESA, S. Baum and C. O'Dea (RIT), R. Perley and W. Cotton (NRAO/AUI/NSF), and the Hubble Heritage Team (STScI/AURA)"
                 },
                 {
-                    title: 'Космология',
-                    content: 'Исследование структуры и эволюции Вселенной.'
+                    title: '3D модель модуля',
+                    content: 'Мобильность модуля облегчает настройку и калибровку'
                 }
             ],
             teamMembers: [
@@ -56,7 +68,7 @@ createApp({
                     name: 'Архангельская Ирина Владимировна',
                     position: 'Руководитель проекта',
                     bio: '*Место для регалий*',
-                    photo: './Images/ArkhangelskayaIV.jpg',
+                    photo: './src/Images/ArkhangelskayaIV.jpg',
                     telegram: '#',
                     email: '#'
                 },
@@ -64,7 +76,7 @@ createApp({
                     name: 'Виноградская Анна Валериановна',
                     position: 'Главный теоретик Б23-201',
                     bio: 'Студент 2 курса института ЛаПлаз',
-                    photo: './Images/VinogradskayaAV.jpg',
+                    photo: './src/Images/VinogradskayaAV.jpg',
                     telegram: '#',
                     email: '#'
                 },
@@ -72,7 +84,7 @@ createApp({
                     name: 'Зарипов Илья Денисович',
                     position: 'Инженер-программист',
                     bio: 'Студент 2 курса института ЛаПлаз',
-                    photo: './Images/ZaripovID.jpg',
+                    photo: './src/Images/ZaripovID.jpg',
                     telegram: 'https://t.me/izaripov13',
                     email: 'stenypol@gmail.com'
                 },
@@ -83,14 +95,14 @@ createApp({
                     authors: 'Виноградская А. В., Воскобойников Д. О., Зарипов И. Д., Левченков А. Ф., Басов Я. А.',
                     journal: 'Сборник избранных тезисов работ лауреатов III Зимней научной сессии СНО НИЯУ МИФИ. С.13-14',
                     year: 2023,
-                    link: './PDFs/Theses_SNO_Winter_session_2023.pdf'
+                    link: './src/PDFs/Theses_SNO_Winter_session_2023.pdf'
                 },
                 {
                     title: 'Применение методики радиоинтерферометрии в учебном процессе в НИЯУ МИФИ',
                     authors: 'Архангельская И. В., Виноградская А. В., Зарипов И. Д., Рахангельский А.И., Рудакова Е. А., Маджидов А. И., Часовиков Е. Н., Панькова М. О., Минасян В. В., Плотникова Е. И.',
                     journal: 'XI Международная конференция ЛАПЛАЗ-2025. Сборник научных трудов. С. 372.',
                     year: 2025,
-                    link: './PDFs/Theses_LapLas_2025.pdf'
+                    link: './src/PDFs/Theses_LapLas_2025.pdf'
                 },
             ],
             contactForm: {

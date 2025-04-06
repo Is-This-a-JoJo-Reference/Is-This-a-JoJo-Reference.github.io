@@ -1,0 +1,8 @@
+Sun_1 https://apod.nasa.gov/apod/ap210921.html
+Sun_2 https://apod.nasa.gov/apod/ap240902.html
+Sun_3 https://apod.nasa.gov/apod/ap230222.html
+Sun_4 https://apod.nasa.gov/apod/ap101018.html
+Sun_5 https://public.nrao.edu/gallery/the-sun-at-1-25mm/
+Hercules_A https://www.nrao.edu/pr/2012/herca/
+Centaurus_A https://public.nrao.edu/gallery/centaurus-a-in-radio/
+Supernova_1987A https://public.nrao.edu/gallery/multiwavelength-image-of-supernova-1987a/

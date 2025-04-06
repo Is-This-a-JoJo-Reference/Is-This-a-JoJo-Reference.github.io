@@ -590,6 +590,16 @@ section {
   width: 20px;
   text-align: center;
 }
+.footer-contact a {
+  color: var(--light-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.footer-contact a:hover {
+  color: var(--secondary-color);
+}
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -7,6 +7,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Three.js Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Viewer Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Initialize scene
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+        
+        // 2. Set up camera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+        camera.position.z = 5;
+
+        // 3. Create renderer
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(document.getElementById('stl-viewer').clientWidth, 500);
+        document.getElementById('stl-viewer').appendChild(renderer.domElement);
+
+        // 4. Add lights
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+
+        // 5. Add orbit controls (mouse/touch rotation)
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+
+        // 6. Load STL model
+        const loader = new THREE.STLLoader();
+        loader.load(
+        './src/models/Interferometer_module.stl', // Path to your STL file
+        (geometry) => {
+            const material = new THREE.MeshPhongMaterial({ 
+            color: 0x00aaff, 
+            specular: 0x111111, 
+            shininess: 200 
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+            
+            // Auto-center model
+            const box = new THREE.Box3().setFromObject(mesh);
+            const center = box.getCenter(new THREE.Vector3());
+            mesh.position.sub(center);
+        },
+        undefined,
+        (error) => {
+            console.error('Error loading STL:', error);
+        }
+        );
+
+        // 7. Animation loop
+        function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+        }
+        animate();
+
+        // 8. Handle window resize
+        window.addEventListener('resize', () => {
+        camera.aspect = document.getElementById('stl-viewer').clientWidth / 500;
+        camera.updateProjectionMatrix();
+        renderer.setSize(
+            document.getElementById('stl-viewer').clientWidth, 
+            500
+        );
+        });
+    });
+    </script>
 </head>
 <body>
     <div id="app">
@@ -96,8 +174,7 @@
 
             <section v-if="currentSection === 'research'" class="section-research">
                 <div class="container">
-                    <h2>Наши исследования</h2>
-                    <p>Изучаем самые загадочные явления во Вселенной, от черных дыр до темной материи.</p>
+                    <h2>Что может исследовать MEPhIst</h2>
                     
                     <div class="research-tabs">
                         <button 
@@ -111,20 +188,18 @@
                     </div>
                     
                     <div class="research-content">
-                        <div v-if="activeResearchTab === 0">
-                            <h3>Экзопланеты</h3>
-                            <p>Исследование планет за пределами Солнечной системы, поиск потенциально обитаемых миров.</p>
-                            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Экзопланеты">
-                        </div>
-                        <div v-if="activeResearchTab === 1">
-                            <h3>Галактическая эволюция</h3>
-                            <p>Изучение формирования и развития галактик на протяжении миллиардов лет.</p>
-                            <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Галактики">
+                        <div v-if="activeResearchTab === 0 || activeResearchTab === 1">
+                            <h3>{{ researchTabs[activeResearchTab].title }}</h3>
+                            <p v-html="researchTabs[activeResearchTab].content.join('<br>')"></p>
+                            <img :src="researchTabs[activeResearchTab].image" :alt="researchTabs[activeResearchTab].title">
+                            <p>&copy; {{ researchTabs[activeResearchTab].credit }}</p>
                         </div>
                         <div v-if="activeResearchTab === 2">
-                            <h3>Космология</h3>
-                            <p>Исследование структуры и эволюции Вселенной в целом.</p>
-                            <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Космос">
+                            <h3>{{ researchTabs[activeResearchTab].title }}</h3>
+                            <p>{{ researchTabs[activeResearchTab].content }}</p>
+                            <div class="sketchfab-embed-wrapper"> 
+                                <iframe title="Interferometer_module" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="800" src="https://sketchfab.com/models/804025713d91419999d06564b5aaa8c2/embed"> </iframe> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -237,7 +312,7 @@
                         <h3>Контакты</h3>
                         <p><i class="fas fa-map-marker-alt"></i>НИЯУ МИФИ. Г. Москва, Каширское ш., 31</p>
                         <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
-                        <p><i class="fas fa-envelope"></i> radiotelescopemephi@gmail.com</p>
+                        <p><a href="mailto:radiotelescopemephi@gmail.com"><i class="fas fa-envelope"></i> info@space-research.ru</a></p>
                     </div>
                 </div>
                 <div class="footer-bottom">
