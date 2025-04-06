@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            isMenuOpen: false,
             currentSection: 'home',
             showScrollButton: false,
             isMenuOpen: false,
@@ -163,6 +164,9 @@ createApp({
             this.updateHeroContent(section);
             this.isMenuOpen = false;
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
         },
         updateHeroContent(section) {
             const data = this.sectionHeroData[section];
