@@ -10,7 +10,7 @@ createApp({
             activeResearchTab: 0,
             heroTitle: 'Студенческий радиоинтерферометр',
             heroSubtitle: 'Передовые научные исследования для понимания Вселенной',
-            currentHeroImage: './src/Images/BG_home.avif',
+            currentHeroImage: 'BG_home',
             mainFeatures: [
                 {
                     icon: 'fas fa-satellite',
@@ -36,7 +36,7 @@ createApp({
                         '• Обнаружение и исследование волновых процессов и ударных волн',
                         '• Анализ радиопрозрачности элементов грануляции',
                     ],
-                    image: './src/Images/Sun_1.avif',
+                    image: 'Sun_1',
                     credit: 'Jordi Coy'
                 },
                 {
@@ -46,7 +46,7 @@ createApp({
                         '• Межзвёздные облака водорода на космологических расстояниях в галактиках и протогалактиках, формировавшихся на ранних стадиях эволюции Вселенной',
                         '• Галлактические облака нейтрального водорода',
                     ],
-                    image: './src/Images/Centaurus_A.avif',
+                    image: 'Centaurus_A',
                     credit: "NASA, ESA, S. Baum and C. O'Dea (RIT), R. Perley and W. Cotton (NRAO/AUI/NSF), and the Hubble Heritage Team (STScI/AURA)"
                 },
             ],
@@ -55,7 +55,7 @@ createApp({
                     name: 'Архангельская Ирина Владимировна',
                     position: 'Руководитель проекта',
                     bio: '*Место для регалий*',
-                    photo: './src/Images/ArkhangelskayaIV.avif',
+                    photo: 'ArkhangelskayaIV',
                     telegram: '#',
                     email: '#'
                 },
@@ -63,7 +63,7 @@ createApp({
                     name: 'Виноградская Анна Валериановна',
                     position: 'Главный теоретик Б23-201',
                     bio: 'Студент 2 курса института ЛаПлаз',
-                    photo: './src/Images/VinogradskayaAV.avif',
+                    photo: 'VinogradskayaAV',
                     telegram: '#',
                     email: '#'
                 },
@@ -71,7 +71,7 @@ createApp({
                     name: 'Зарипов Илья Денисович',
                     position: 'Инженер-программист',
                     bio: 'Студент 2 курса института ЛаПлаз',
-                    photo: './src/Images/ZaripovID.avif',
+                    photo: 'ZaripovID',
                     telegram: 'https://t.me/izaripov13',
                     email: 'stenypol@gmail.com'
                 },
@@ -102,27 +102,27 @@ createApp({
                 home: {
                     title: 'Студенческий радиоинтерферометр',
                     subtitle: 'Передовые научные исследования для понимания Вселенной',
-                    image: './src/Images/BG_home.avif'
+                    image: 'BG_home'
                 },
                 research: {
                     title: 'Наши исследования',
                     subtitle: 'Изучение самых загадочных явлений во Вселенной',
-                    image: './src/Images/BG_research.avif'
+                    image: 'BG_research'
                 },
                 team: {
                     title: 'Наша команда',
                     subtitle: 'Талантливые ученые и инженеры, работающие вместе',
-                    image: './src/Images/BG_team.avif'
+                    image: 'BG_team'
                 },
                 publications: {
                     title: 'Публикации',
                     subtitle: 'Наши научные работы в ведущих журналах',
-                    image: './src/Images/BG_publications.avif'
+                    image: 'BG_publications'
                 },
                 contact: {
                     title: 'Свяжитесь с нами',
                     subtitle: 'Мы открыты для сотрудничества',
-                    image: './src/Images/BG_contact.avif'
+                    image: 'BG_contact'
                 }
             },
             contactInfo: {
